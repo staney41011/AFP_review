@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>AFP / CFP 考前快速複習</title>
+  <style>
+    :root{
+      --bg:#08101f;--panel:#0f1930;--panel2:#151f39;--text:#eef4ff;--muted:#9eacc8;
+      --line:rgba(255,255,255,.10);--accent:#7dd3fc;--accent2:#a78bfa;--good:#86efac;
+      --warn:#fde68a;--bad:#fda4af;--shadow:0 20px 55px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 20% 0%,rgba(125,211,252,.10),transparent 30%),radial-gradient(circle at 85% 8%,rgba(167,139,250,.10),transparent 28%),var(--bg);color:var(--text);font-family:Inter,"Noto Sans TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;line-height:1.65}
+    button,input{font:inherit} button{cursor:pointer}
+    .wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(8,16,31,.84);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .topbar{display:flex;gap:14px;align-items:center;padding:12px 0}.brand{font-weight:900;letter-spacing:.02em;white-space:nowrap}.brand span{color:var(--accent)}
+    .search{flex:1;display:flex;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:0 12px}.search input{width:100%;border:0;outline:0;background:transparent;color:var(--text);padding:10px}
+    .hero{padding:42px 0 24px}.eyebrow{color:var(--accent);font-weight:800;font-size:.92rem}.hero h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1.05;margin:.15em 0}.hero p{max-width:760px;color:var(--muted);font-size:1.05rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:10px 16px;border-radius:13px;font-weight:800}.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07101f;border:0}.btn:hover{transform:translateY(-1px)}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.stat{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}.stat b{font-size:1.6rem;display:block}.stat span{color:var(--muted);font-size:.9rem}
+    .tabs{display:flex;gap:8px;overflow:auto;padding:8px 0 14px;scrollbar-width:none}.tab{white-space:nowrap;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:9px 13px;border-radius:999px;font-weight:800}.tab.active{color:#07101f;background:var(--accent);border-color:transparent}
+    section{padding:18px 0 30px}.section-title{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:12px}.section-title h2{margin:0;font-size:1.45rem}.section-title p{margin:0;color:var(--muted);font-size:.92rem}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(180deg,rgba(21,31,57,.96),rgba(15,25,48,.96));border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px}.tag{display:inline-flex;padding:3px 9px;border-radius:999px;background:rgba(125,211,252,.12);color:var(--accent);font-size:.78rem;font-weight:900;border:1px solid rgba(125,211,252,.18)}
+    .keyline{border-left:3px solid var(--accent);padding-left:12px;margin:12px 0}.muted{color:var(--muted)} .good{color:var(--good)} .warn{color:var(--warn)} .bad{color:var(--bad)}
+    .formula{background:#080d19;border:1px solid var(--line);border-radius:14px;padding:12px;margin:9px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow:auto}
+    table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.94rem}th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--accent);font-weight:900}
+    details{border-top:1px solid var(--line);padding:10px 0}details:first-of-type{border-top:0}summary{font-weight:850;cursor:pointer}.memory{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:12px}.master{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;padding:7px 10px}.master.done{background:rgba(134,239,172,.12);color:var(--good);border-color:rgba(134,239,172,.35)}
+    .quickbank{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.number{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px}.number b{display:block;font-size:1.35rem;color:var(--warn)}.number span{font-size:.88rem;color:var(--muted)}
+    .quizbox{max-width:840px}.q-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem}.q-title{font-size:1.2rem;font-weight:900;margin:12px 0}.options{display:grid;gap:9px}.opt{padding:11px 13px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;text-align:left}.opt.correct{border-color:var(--good);background:rgba(134,239,172,.09)}.opt.wrong{border-color:var(--bad);background:rgba(253,164,175,.09)}.explain{margin-top:12px;padding:12px;border-radius:12px;background:#080d19;border:1px solid var(--line);display:none}.explain.show{display:block}.quiz-actions{display:flex;gap:10px;margin-top:12px}
+    .subject{display:none}.subject.active{display:block}.hidden{display:none!important}
+    .footer{padding:28px 0 54px;color:var(--muted);font-size:.88rem;text-align:center}
+    .spotlight{outline:2px solid var(--accent);outline-offset:2px}
+    @media(max-width:850px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.quickbank{grid-template-columns:repeat(2,1fr)}.topbar{flex-wrap:wrap}.brand{width:100%}}
+    @media(max-width:520px){.wrap{width:min(100% - 20px,1180px)}.stats{grid-template-columns:1fr 1fr}.stat{padding:12px}.quickbank{grid-template-columns:1fr 1fr}.hero{padding-top:28px}.card{padding:15px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <div class="brand">AFP / CFP <span>快速複習</span></div>
+    <div class="search">🔎<input id="search" placeholder="搜尋：特留分、Sharpe、244萬、KYC…" aria-label="搜尋重點"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="eyebrow">115 年考輔講義｜考前衝刺版</div>
+    <h1>不是重讀全部，<br>是把會考的變成反射。</h1>
+    <p>七科重點、公式、法規數字、易錯觀念與隨機測驗集中在一頁。適合手機通勤複習，也可用「已掌握」標記自己的進度。</p>
+    <div class="hero-actions"><button class="btn primary" onclick="goQuiz()">開始 20 題快測</button><button class="btn" onclick="showSubject('numbers')">先背數字</button><button class="btn" onclick="resetProgress()">重設進度</button></div>
+    <div class="stats">
+      <div class="stat"><b>7 科</b><span>NM1 ～ NM7</span></div>
+      <div class="stat"><b id="masteredCount">0</b><span>已掌握重點</span></div>
+      <div class="stat"><b id="bestScore">0%</b><span>快測最佳成績</span></div>
+      <div class="stat"><b>20 題</b><span>每次隨機快測</span></div>
+    </div>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-target="home">總覽</button>
+    <button class="tab" data-target="nm1">NM1 基礎理財</button>
+    <button class="tab" data-target="nm2">NM2 財務管理</button>
+    <button class="tab" data-target="nm3">NM3 保險</button>
+    <button class="tab" data-target="nm4">NM4 投資</button>
+    <button class="tab" data-target="nm5">NM5 退休</button>
+    <button class="tab" data-target="nm6">NM6 稅務</button>
+    <button class="tab" data-target="nm7">NM7 傳承</button>
+    <button class="tab" data-target="numbers">必背數字</button>
+    <button class="tab" data-target="quiz">快測</button>
+  </div>
+
+  <div id="home" class="subject active">
+    <section>
+      <div class="section-title"><h2>考前一週讀法</h2><p>先拿高機率分數，再補細節</p></div>
+      <div class="grid">
+        <article class="card searchable"><span class="tag">優先順序</span><h3>先算、再背、最後刷題</h3><div class="keyline"><b>NM4 投資 → NM6 稅務 → NM7 傳承 → NM2 財管</b></div><p class="muted">接著 NM3 保險、NM5 退休；NM1 用流程、偏誤、倫理快速拿觀念分。</p></article>
+        <article class="card searchable"><span class="tag">20 秒反射</span><h3>看到關鍵字立刻連到答案</h3><p><b>σ → Sharpe／總風險</b><br><b>β → CAPM／Treynor／系統風險</b><br><b>4% → 25 倍</b><br><b>244 萬 → 贈與免稅額</b><br><b>2 年 → 死亡前贈與擬制遺產</b></p></article>
+      </div>
+    </section>
+    <section>
+      <div class="section-title"><h2>最容易失分的 8 件事</h2><p>考題最愛用「看起來很像」混淆</p></div>
+      <div class="grid">
+        <article class="card searchable"><details open><summary>Sharpe 與 Treynor 分母搞反</summary><p>Sharpe 用 <b>σ</b>；Treynor 用 <b>β</b>。</p></details><details><summary>特留分直接拿總遺產乘 1/2</summary><p>錯。先算「應繼分」，再乘特留分比例。</p></details><details><summary>把拋棄繼承期限記成遺產稅申報期限</summary><p>拋棄繼承：3 個月；遺產稅申報：6 個月。</p></details><details><summary>把 KYC 與 KYP 混在一起</summary><p>KYC 看客戶；KYP 看商品。</p></details></article>
+        <article class="card searchable"><details open><summary>房貸本金當成本期支出</summary><p>教材觀念：房貸本金屬資產負債表中「負債減少」。</p></details><details><summary>以為代位原則也適用人身保險</summary><p>教材明列保險代位原則不適用人身保險。</p></details><details><summary>忽略折價債券到期收斂</summary><p>折價債券越接近到期，價格往面額上升收斂。</p></details><details><summary>把「指定受益人保險金」與所有保險給付都視為免遺產稅</summary><p>教材另提醒實質課稅與不同保險給付性質，題目需看條件。</p></details></article>
+      </div>
+    </section>
+  </div>
+
+  <div id="nm1" class="subject">
+    <section><div class="section-title"><h2>NM1 基礎理財規劃</h2><p>人、流程、心理、倫理</p></div><div class="grid">
+      <article class="card searchable"><span class="tag">必背流程</span><h3>理財規劃六步驟</h3><ol><li>建立與定義客戶關係</li><li>收集客戶資料與釐清目標</li><li>分析與評估財務狀況</li><li>發展並提出理財規劃方案</li><li>執行理財規劃方案</li><li>定期檢視與監控</li></ol><div class="memory"><span class="muted">口訣：建 → 收 → 分 → 提 → 執 → 監</span><button class="master" data-id="nm1-steps">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">適合度</span><h3>KYC vs KYP</h3><p><b>KYC</b>：了解客戶的財務目標、風險承受度、承擔能力與限制。</p><p><b>KYP</b>：熟悉商品費用結構、流動性限制、最大可能虧損。</p><div class="memory"><span></span><button class="master" data-id="nm1-kyc">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">行為財務</span><h3>情境辨認</h3><table><tr><th>偏誤</th><th>快速辨識</th></tr><tr><td>損失趨避／處置效應</td><td>虧損不願賣、獲利太早賣</td></tr><tr><td>代表性偏誤</td><td>用少量特徵推論全部</td></tr><tr><td>近因效應</td><td>太重視最近發生的事情</td></tr><tr><td>定錨</td><td>被第一個價格／資訊綁住</td></tr><tr><td>過度自信</td><td>高估自己的判斷能力</td></tr></table><div class="memory"><span></span><button class="master" data-id="nm1-bias">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">倫理</span><h3>CFP 顧問核心</h3><p><b>客戶利益優先</b>、客觀、公平、揭露利益衝突、保密、專業、勤勉盡責。</p><p class="muted">保密並非絕對：教材列法院命令、主管機關依法調閱等例外。</p><div class="memory"><span></span><button class="master" data-id="nm1-ethics">已掌握</button></div></article>
+    </div></section>
+  </div>
+
+  <div id="nm2" class="subject">
+    <section><div class="section-title"><h2>NM2 財務管理</h2><p>數、報表、比率、TVM</p></div><div class="grid">
+      <article class="card searchable"><span class="tag">財務比率</span><h3>四個基本比率</h3><table><tr><th>指標</th><th>公式</th><th>教材參考</th></tr><tr><td>儲蓄率</td><td>年儲蓄 ÷ 年總收入</td><td>10～20%</td></tr><tr><td>支出率</td><td>年支出 ÷ 年收入</td><td>≤ 80～90%</td></tr><tr><td>流動性比率</td><td>流動資產 ÷ 月支出</td><td>≥ 3</td></tr><tr><td>負債比率</td><td>總負債 ÷ 總資產</td><td>≤ 40%</td></tr></table><div class="memory"><span></span><button class="master" data-id="nm2-ratio">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">TVM</span><h3>題目先辨認 5 個鍵</h3><p><b>PV</b> 現在值｜<b>FV</b> 未來值｜<b>PMT</b> 每期金額｜<b>N</b> 期數｜<b>I/Y</b> 利率</p><div class="formula">PV = PMT × [1 - (1+r)^(-n)] / r</div><p class="muted">問「現在需要準備多少」多半找 PV；問「每月存多少」多半找 PMT。</p><div class="memory"><span></span><button class="master" data-id="nm2-tvm">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">報表</span><h3>兩個常考判斷</h3><p>期初淨值 ＋ 本期儲蓄 ＝ <b>期末淨值</b></p><p>繳房貸的<b>本金</b>：資產負債表中「負債減少」，不是把整筆都當一般支出。</p><div class="memory"><span></span><button class="master" data-id="nm2-statement">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">目標負債化</span><h3>核心邏輯</h3><p>把未來理財目標現金流，用<b>實質報酬率</b>還原成現值，再與目前生息資產及未來儲蓄能力比較。</p><p class="muted">實質報酬率的教材簡化概念：投資報酬率 − 通膨率。</p></article>
+    </div></section>
+  </div>
+
+  <div id="nm3" class="subject">
+    <section><div class="section-title"><h2>NM3 風險管理與保險規劃</h2><p>事故、責任、理賠、原則</p></div><div class="grid">
+      <article class="card searchable"><span class="tag">風險矩陣</span><h3>頻率 × 損失幅度</h3><table><tr><th></th><th>低幅度</th><th>高幅度</th></tr><tr><td>低頻</td><td>承擔／自留</td><td>移轉／保險</td></tr><tr><td>高頻</td><td>預防</td><td>避免</td></tr></table><p class="muted">教材列五方法：避免、預防、承擔、移轉、組合。</p><div class="memory"><span></span><button class="master" data-id="nm3-risk">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">六大原則</span><h3>一口氣背完</h3><p><b>最大誠信 → 保險利益 → 損害補償 → 主力近因 → 代位 → 分攤</b></p><p>代位＝保險人理賠後代位向第三人求償；教材註明<b>不適用人身保險</b>。</p><div class="memory"><span></span><button class="master" data-id="nm3-principle">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">告知義務</span><h3>1 個月＋2 年</h3><p>要保人就保險人<b>書面詢問</b>據實說明。解除權：保險人知有解除原因後 <b>1 個月</b>不行使而消滅；契約訂立經 <b>2 年</b>亦有期間限制。</p><div class="memory"><span></span><button class="master" data-id="nm3-disclosure">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">健康險</span><h3>實支 vs 定額</h3><p><b>實支實付</b>：醫療費用補償、與實際支出相關。<br><b>定額給付</b>：符合契約條件即按約定金額給付。</p><p class="muted">健康險核保常見工具：等待期間、免責期間、自負額。</p></article>
+    </div></section>
+  </div>
+
+  <div id="nm4" class="subject">
+    <section><div class="section-title"><h2>NM4 投資規劃</h2><p>本週最值得刷題</p></div><div class="grid">
+      <article class="card searchable"><span class="tag">CAPM</span><h3>β = 系統風險</h3><div class="formula">E(Ri) = Rf + β × (Rm − Rf)</div><p><b>標準差 σ：總風險</b><br><b>Beta β：系統風險</b></p><div class="memory"><span></span><button class="master" data-id="nm4-capm">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">績效</span><h3>Sharpe / Treynor / Jensen</h3><div class="formula">Sharpe = (Rp − Rf) / σp</div><div class="formula">Treynor = (Rp − Rf) / βp</div><div class="formula">Jensen α = Rp − [Rf + β(Rm − Rf)]</div><div class="memory"><span class="warn">σ → Sharpe｜β → Treynor</span><button class="master" data-id="nm4-performance">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">債券</span><h3>價格與殖利率反向</h3><p>市場殖利率 <b>↓</b> → 債券價格 <b>↑</b><br>市場殖利率 <b>↑</b> → 債券價格 <b>↓</b></p><p>折價債券接近到期：價格<b>上升並往面額收斂</b>。</p><div class="memory"><span></span><button class="master" data-id="nm4-bond">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">衍生商品</span><h3>兩條必背公式</h3><div class="formula">Put-Call Parity：S + P − C = K / (1+r)^t</div><div class="formula">避險口數 = (現貨部位價值 / 期貨契約價值) × (β目標 − β目前)</div><div class="memory"><span></span><button class="master" data-id="nm4-derivative">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">市場工具</span><h3>幾個快速判斷</h3><p><b>貨幣市場</b>：一年期以下金融工具。<br><b>避險基金／對沖基金</b>：教材強調追求絕對報酬、透明度較低。</p></article>
+    </div></section>
+  </div>
+
+  <div id="nm5" class="subject">
+    <section><div class="section-title"><h2>NM5 退休規劃</h2><p>需求 → 現值 → 扣除確定給付 → 缺口</p></div><div class="grid">
+      <article class="card searchable"><span class="tag">4% 法則</span><h3>退休第一年支出 × 25</h3><div class="formula">退休金總額 ≈ 退休第一年支出 × 25</div><p>因為 1 ÷ 4% = 25。精確題則回到年金現值。</p><div class="memory"><span></span><button class="master" data-id="nm5-4pct">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">所得替代率</span><h3>常見目標 60%～80%</h3><div class="formula">所得替代率 = 退休後預計所得（或支出） ÷ 現役所得</div><p class="muted">題目通常再搭配安全支用率或年金現值求總退休金。</p><div class="memory"><span></span><button class="master" data-id="nm5-replacement">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">缺口</span><h3>自行準備額</h3><div class="formula">自行準備退休金 = 退休總需求 − 勞保老年給付 − 企業/職業退休金</div><p>看到「已可領多少」要記得扣掉。</p></article>
+      <article class="card searchable"><span class="tag">序列報酬風險</span><h3>退休初期跌最傷</h3><p>剛退休前幾年若市場先大跌，同時又提款，平均報酬即使最後相同，結果也可能差很多。</p><p class="muted">教材用退休後前三年股市下跌 20% 的壓力測試作提醒。</p><div class="memory"><span></span><button class="master" data-id="nm5-sequence">已掌握</button></div></article>
+    </div></section>
+  </div>
+
+  <div id="nm6" class="subject">
+    <section><div class="section-title"><h2>NM6 稅務規劃</h2><p>115 年講義數字要直接背</p></div><div class="grid">
+      <article class="card searchable"><span class="tag">遺產稅</span><h3>免稅額＋三級距</h3><p><b>免稅額 1,333 萬</b></p><table><tr><th>課稅遺產淨額</th><th>稅率</th></tr><tr><td>5,621 萬以下</td><td>10%</td></tr><tr><td>5,621 萬～1億1,242萬</td><td>15%</td></tr><tr><td>超過 1億1,242萬</td><td>20%</td></tr></table><div class="memory"><span></span><button class="master" data-id="nm6-estate">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">贈與稅</span><h3>244 萬＋三級距</h3><p><b>每年贈與免稅額 244 萬</b></p><table><tr><th>贈與淨額</th><th>稅率</th></tr><tr><td>2,811 萬以下</td><td>10%</td></tr><tr><td>2,811 萬～5,621 萬</td><td>15%</td></tr><tr><td>超過 5,621 萬</td><td>20%</td></tr></table><div class="memory"><span></span><button class="master" data-id="nm6-gift">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">房地合一</span><h3>境內個人持有期間</h3><table><tr><td>≤ 2 年</td><td><b>45%</b></td></tr><tr><td>> 2 ～ ≤ 5 年</td><td><b>35%</b></td></tr><tr><td>> 5 ～ ≤ 10 年</td><td><b>20%</b></td></tr><tr><td>> 10 年</td><td><b>15%</b></td></tr></table><p class="warn">自住房地符合條件：400 萬免稅額，超過部分 10%；「6 年」是重要門檻。</p><div class="memory"><span></span><button class="master" data-id="nm6-house">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">最低稅負 AMT</span><h3>特定保險死亡給付</h3><p>教材提醒：符合特定條件的人壽／年金死亡給付，個人基本所得額仍可能有計入問題；講義使用門檻 <b>3,740 萬元</b>。</p><p class="muted">題目務必分辨「遺產稅是否計入遺產」與「AMT 是否計入基本所得額」是兩件事。</p></article>
+    </div></section>
+  </div>
+
+  <div id="nm7" class="subject">
+    <section><div class="section-title"><h2>NM7 財富傳承規劃</h2><p>順位、應繼分、特留分、時限</p></div><div class="grid">
+      <article class="card searchable"><span class="tag">法定順位</span><h3>第一到第四順序</h3><p><b>直系血親卑親屬 → 父母 → 兄弟姊妹 → 祖父母</b></p><p class="muted">配偶不是排在這四順位裡，而是依情況與順位繼承人共同繼承。</p><div class="memory"><span></span><button class="master" data-id="nm7-order">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">配偶應繼分</span><h3>四種情況</h3><table><tr><th>共同繼承人</th><th>配偶應繼分</th></tr><tr><td>直系血親卑親屬</td><td>與其他繼承人均分</td></tr><tr><td>父母／兄弟姊妹</td><td>1/2</td></tr><tr><td>祖父母</td><td>2/3</td></tr><tr><td>無其他順位繼承人</td><td>全部</td></tr></table><div class="memory"><span></span><button class="master" data-id="nm7-spouse">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">特留分</span><h3>先算應繼分，再乘比例</h3><p><b>配偶、直系血親卑親屬、父母：應繼分 × 1/2</b></p><p><b>兄弟姊妹、祖父母：應繼分 × 1/3</b></p><div class="memory"><span></span><button class="master" data-id="nm7-reserve">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">3 / 6 / 2</span><h3>三個時限</h3><p><b>3 個月</b>：知悉繼承後辦理拋棄繼承。<br><b>6 個月</b>：遺產稅申報。<br><b>死亡前 2 年</b>：特定對象贈與可能併入遺產。</p><div class="memory"><span></span><button class="master" data-id="nm7-time">已掌握</button></div></article>
+      <article class="card searchable"><span class="tag">遺囑</span><h3>五種形式</h3><p><b>自書、密封、公證、代筆、口授</b></p><p>遺囑得依意願分配，但仍受特留分限制。</p></article>
+      <article class="card searchable"><span class="tag">剩餘財產差額</span><h3>先分夫妻，再算遺產</h3><p>教材重點：配偶剩餘財產差額分配請求權是<b>請求權，不是繼承權</b>；配偶拋棄繼承仍可能主張。</p><p>時效：知悉差額起 <b>2 年</b>；法定財產制消滅起最長 <b>5 年</b>。</p></article>
+      <article class="card searchable"><span class="tag">信託</span><h3>一句話理解</h3><p>委託人將財產權移轉或為其他處分，由受託人依信託本旨，為受益人利益或特定目的管理、處分信託財產。</p></article>
+    </div></section>
+  </div>
+
+  <div id="numbers" class="subject">
+    <section><div class="section-title"><h2>必背數字牆</h2><p>每天早晚各看一次</p></div>
+      <div class="quickbank">
+        <div class="number searchable"><b>244 萬</b><span>每年贈與免稅額</span></div>
+        <div class="number searchable"><b>1,333 萬</b><span>遺產稅免稅額</span></div>
+        <div class="number searchable"><b>3 個月</b><span>拋棄繼承</span></div>
+        <div class="number searchable"><b>6 個月</b><span>遺產稅申報</span></div>
+        <div class="number searchable"><b>2 年</b><span>死亡前特定贈與擬制遺產</span></div>
+        <div class="number searchable"><b>1 月 / 2 年</b><span>保險告知解除權相關期間</span></div>
+        <div class="number searchable"><b>4% / 25 倍</b><span>退休簡易法則</span></div>
+        <div class="number searchable"><b>60～80%</b><span>常見退休所得替代率</span></div>
+        <div class="number searchable"><b>≥ 3</b><span>流動性比率教材參考</span></div>
+        <div class="number searchable"><b>≤ 40%</b><span>負債比率教材參考</span></div>
+        <div class="number searchable"><b>400 萬</b><span>房地合一自住房地免稅額</span></div>
+        <div class="number searchable"><b>10%</b><span>符合條件自住房地超額稅率</span></div>
+        <div class="number searchable"><b>45/35/20/15%</b><span>境內個人房地合一持有期間稅率</span></div>
+        <div class="number searchable"><b>3,740 萬</b><span>講義 AMT 特定保險死亡給付門檻</span></div>
+        <div class="number searchable"><b>5,621 萬</b><span>遺產稅 10% 第一級上限</span></div>
+        <div class="number searchable"><b>2,811 萬</b><span>贈與稅 10% 第一級上限</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="quiz" class="subject">
+    <section><div class="section-title"><h2>20 題快速測驗</h2><p>每次隨機抽題，錯題立即看解析</p></div>
+      <div class="card quizbox">
+        <div class="q-meta"><span id="qCounter">第 1 / 20 題</span><span id="qScore">0 分</span></div>
+        <div class="q-title" id="qTitle"></div>
+        <div class="options" id="options"></div>
+        <div class="explain" id="explain"></div>
+        <div class="quiz-actions"><button class="btn primary" id="nextBtn" onclick="nextQuestion()" disabled>下一題</button><button class="btn" onclick="startQuiz()">重新抽題</button></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="wrap footer">內容依本次上傳之 115 年 AFP / CFP 考輔講義整理；考前以講義版本與老師課堂說明為準。｜本頁進度只儲存在你的瀏覽器。</div>
+
+<script>
+const tabs=[...document.querySelectorAll('.tab')];
+function showSubject(id){document.querySelectorAll('.subject').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');tabs.forEach(t=>t.classList.toggle('active',t.dataset.target===id));window.scrollTo({top:0,behavior:'smooth'});}
+tabs.forEach(t=>t.addEventListener('click',()=>showSubject(t.dataset.target)));
+
+const key='afp-review-mastered-v1';
+function loadMastered(){return JSON.parse(localStorage.getItem(key)||'[]')}
+function paintMastered(){const s=new Set(loadMastered());document.querySelectorAll('.master').forEach(b=>{b.classList.toggle('done',s.has(b.dataset.id));b.textContent=s.has(b.dataset.id)?'✓ 已掌握':'已掌握'});document.getElementById('masteredCount').textContent=s.size;}
+document.querySelectorAll('.master').forEach(b=>b.addEventListener('click',()=>{const s=new Set(loadMastered());s.has(b.dataset.id)?s.delete(b.dataset.id):s.add(b.dataset.id);localStorage.setItem(key,JSON.stringify([...s]));paintMastered()}));
+function resetProgress(){if(confirm('要清除所有「已掌握」與最佳測驗成績嗎？')){localStorage.removeItem(key);localStorage.removeItem('afp-best-v1');paintMastered();paintBest();}}
+function paintBest(){document.getElementById('bestScore').textContent=(localStorage.getItem('afp-best-v1')||0)+'%'}
+
+const bank=[
+ {s:'NM1',q:'理財規劃六步驟中，「分析與評估客戶財務狀況」之前應先做什麼？',o:['直接推薦商品','收集客戶資料與釐清目標','執行投資交易','定期檢視'],a:1,e:'順序：建立關係 → 收集資料與目標 → 分析評估 → 提方案 → 執行 → 監控。'},
+ {s:'NM1',q:'KYP 的重點是？',o:['了解客戶家庭成員','了解商品費用、流動性與最大可能虧損','只看過去報酬率','只看客戶年齡'],a:1,e:'KYC 看客戶；KYP 看商品。'},
+ {s:'NM1',q:'投資人虧損股票一直抱著不賣，較符合哪一種偏誤？',o:['損失趨避／處置效應','貨幣幻覺','沉沒成本與稅盾','隨機漫步'],a:0,e:'教材以套牢不認賠作為損失趨避／處置效應的典型情境。'},
+ {s:'NM1',q:'CFP 顧問面對利益衝突時，較符合教材精神的是？',o:['不需說明','主動揭露','只在客戶追問時說','直接拒絕所有商品'],a:1,e:'教材要求揭露利益衝突與收費結構。'},
+ {s:'NM2',q:'流動性比率的教材公式是？',o:['總負債 ÷ 總資產','流動資產 ÷ 月支出','年儲蓄 ÷ 年收入','投資資產 ÷ 淨值'],a:1,e:'流動性比率 = 流動資產 ÷ 月支出，教材參考值 ≥ 3。'},
+ {s:'NM2',q:'若題目問「每月要存多少才能在 5 年後達到目標」，主要要求哪個 TVM 變數？',o:['PV','FV','PMT','β'],a:2,e:'每期投入金額對應 PMT。'},
+ {s:'NM2',q:'教材中負債比率的參考值為？',o:['≤ 20%','≤ 30%','≤ 40%','≤ 80%'],a:2,e:'總負債 ÷ 總資產，教材參考值 ≤ 40%。'},
+ {s:'NM3',q:'低頻率、高損失幅度的風險，教材矩陣最典型的處理方式是？',o:['避免','預防','移轉／保險','忽略'],a:2,e:'低頻高損通常以移轉（保險）處理。'},
+ {s:'NM3',q:'下列何者不適用保險代位原則？',o:['財產保險','責任保險','人身保險','汽車車體險'],a:2,e:'教材明列保險代位原則不適用於人身保險。'},
+ {s:'NM3',q:'保險人知有解除原因後，經過多久不行使，解除權消滅？',o:['7 日','1 個月','3 個月','6 個月'],a:1,e:'教材整理保險法第 64 條：知悉解除原因後 1 個月。'},
+ {s:'NM3',q:'純粹風險有幾種基本結果？',o:['只有損失','損失或沒損失','損失、沒損失、獲利','只有獲利'],a:1,e:'純粹風險只有損失與沒有損失兩種結果。'},
+ {s:'NM4',q:'Sharpe Ratio 的風險分母是？',o:['β','σ','α','Duration'],a:1,e:'Sharpe 使用總風險標準差 σ。'},
+ {s:'NM4',q:'Treynor Ratio 的風險分母是？',o:['β','σ','α','VaR'],a:0,e:'Treynor 使用系統風險 β。'},
+ {s:'NM4',q:'CAPM 中 β 衡量的是？',o:['總風險','系統風險','信用風險','流動性風險'],a:1,e:'Beta 為相對市場的系統風險衡量。'},
+ {s:'NM4',q:'其他條件不變，市場殖利率下降時，債券價格通常？',o:['下降','上升','不變','一定歸零'],a:1,e:'債券價格與殖利率反向。'},
+ {s:'NM4',q:'折價債券接近到期時，價格通常如何？',o:['繼續下跌遠離面額','上升往面額收斂','完全不動','變成負值'],a:1,e:'教材稱為債券價格的收斂性。'},
+ {s:'NM4',q:'貨幣市場工具通常是？',o:['一年期以下金融工具','20 年公司債','普通股','不動產'],a:0,e:'教材題目以三個月國庫券作為貨幣市場證券。'},
+ {s:'NM5',q:'4% 法則對應的簡易退休資產倍數約為？',o:['10 倍','15 倍','20 倍','25 倍'],a:3,e:'1 ÷ 4% = 25，所以退休第一年支出 × 25。'},
+ {s:'NM5',q:'教材常見的退休所得替代率區間為？',o:['10～20%','30～40%','60～80%','100～120%'],a:2,e:'退休規劃教材常見替代率 60～80%。'},
+ {s:'NM5',q:'自行準備退休金應如何估算？',o:['退休總需求 + 勞保 + 勞退','退休總需求 − 已有確定給付','只看目前存款','只看退休年齡'],a:1,e:'總需求扣除勞保、勞退等確定給付，才是個人缺口。'},
+ {s:'NM6',q:'115 年講義中的每年贈與免稅額為？',o:['100 萬','220 萬','244 萬','400 萬'],a:2,e:'講義數字：每年贈與免稅額 244 萬元。'},
+ {s:'NM6',q:'115 年講義中的遺產稅免稅額為？',o:['1,200 萬','1,333 萬','2,811 萬','5,621 萬'],a:1,e:'講義數字：遺產稅免稅額 1,333 萬元。'},
+ {s:'NM6',q:'境內個人房地合一，持有 2 年以內的教材稅率為？',o:['10%','20%','35%','45%'],a:3,e:'講義表格：≤2 年為 45%。'},
+ {s:'NM6',q:'符合條件的自住房地，講義中的免稅額是多少？',o:['244 萬','400 萬','1,333 萬','3,740 萬'],a:1,e:'符合條件自住房地：400 萬免稅額，超額部分 10%。'},
+ {s:'NM6',q:'講義在 AMT 特定保險死亡給付使用的門檻為？',o:['2,400 萬','3,330 萬','3,740 萬','4,880 萬'],a:2,e:'講義 AMT 章節使用 3,740 萬元門檻。'},
+ {s:'NM7',q:'法定繼承第一順位是？',o:['父母','兄弟姊妹','直系血親卑親屬','祖父母'],a:2,e:'順位：直系血親卑親屬 → 父母 → 兄弟姊妹 → 祖父母。'},
+ {s:'NM7',q:'配偶與父母共同繼承時，配偶應繼分為？',o:['1/3','1/2','2/3','全部'],a:1,e:'配偶與父母或兄弟姊妹共同繼承時，配偶為 1/2。'},
+ {s:'NM7',q:'兄弟姊妹的特留分為其應繼分的？',o:['1/2','1/3','2/3','全部'],a:1,e:'兄弟姊妹、祖父母：特留分 = 應繼分 × 1/3。'},
+ {s:'NM7',q:'拋棄繼承應於知悉得繼承後多久內辦理？',o:['1 個月','2 個月','3 個月','6 個月'],a:2,e:'講義整理：3 個月內向法院辦理。'},
+ {s:'NM7',q:'死亡前多久內贈與特定繼承相關對象，可能視為遺產併入？',o:['6 個月','1 年','2 年','5 年'],a:2,e:'死亡前 2 年內贈與特定對象，可能併入遺產總額。'},
+ {s:'NM7',q:'下列何者不是講義列出的遺囑形式？',o:['自書','公證','代筆','口頭聊天紀錄'],a:3,e:'講義列：自書、密封、公證、代筆、口授。'}
+];
+let quiz=[],idx=0,score=0,answered=false;
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function startQuiz(){quiz=shuffle(bank).slice(0,20);idx=0;score=0;renderQuestion()}
+function renderQuestion(){answered=false;const q=quiz[idx];document.getElementById('qCounter').textContent=`第 ${idx+1} / ${quiz.length} 題｜${q.s}`;document.getElementById('qScore').textContent=`${score} 分`;document.getElementById('qTitle').textContent=q.q;const box=document.getElementById('options');box.innerHTML='';q.o.forEach((x,i)=>{const b=document.createElement('button');b.className='opt';b.textContent=`${String.fromCharCode(65+i)}. ${x}`;b.onclick=()=>answer(i,b);box.appendChild(b)});const e=document.getElementById('explain');e.className='explain';e.textContent='';document.getElementById('nextBtn').disabled=true;document.getElementById('nextBtn').textContent=idx===quiz.length-1?'看結果':'下一題'}
+function answer(i,btn){if(answered)return;answered=true;const q=quiz[idx];[...document.querySelectorAll('.opt')].forEach((b,j)=>{if(j===q.a)b.classList.add('correct');if(j===i&&i!==q.a)b.classList.add('wrong');b.disabled=true});if(i===q.a)score++;const e=document.getElementById('explain');e.innerHTML=(i===q.a?'<b class="good">答對。</b> ':'<b class="bad">答錯。</b> ')+q.e;e.classList.add('show');document.getElementById('qScore').textContent=`${score} 分`;document.getElementById('nextBtn').disabled=false;}
+function nextQuestion(){if(idx<quiz.length-1){idx++;renderQuestion();return;}const pct=Math.round(score/quiz.length*100);const best=Math.max(Number(localStorage.getItem('afp-best-v1')||0),pct);localStorage.setItem('afp-best-v1',best);paintBest();document.getElementById('qTitle').textContent=`完成！${score} / ${quiz.length}，正確率 ${pct}%`;document.getElementById('options').innerHTML='';const e=document.getElementById('explain');e.className='explain show';e.innerHTML=pct>=85?'<b class="good">狀態很好：</b>接下來只刷錯題與數字。':pct>=70?'<b class="warn">接近了：</b>把錯題科目再看一次，今晚再測一輪。':'<b class="bad">先補核心：</b>回到必背數字、NM4、NM6、NM7、NM2，再做一次。';document.getElementById('nextBtn').disabled=true;}
+function goQuiz(){showSubject('quiz');startQuiz()}
+
+const search=document.getElementById('search');
+search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();document.querySelectorAll('.searchable').forEach(el=>{el.classList.remove('spotlight');if(!q)return;const hit=el.innerText.toLowerCase().includes(q);if(hit){el.classList.add('spotlight');const parent=el.closest('.subject');if(parent&&!parent.classList.contains('active'))showSubject(parent.id)}})});
+paintMastered();paintBest();startQuiz();
+</script>
+</body>
+</html>
